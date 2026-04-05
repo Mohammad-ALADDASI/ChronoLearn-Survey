@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChronoLearn Evaluation Questionnaire | استبيان تقييم كرونوليرن</title>
+  <style>
+    :root {
+      --psut-blue: #001871;
+      --psut-blue-2: #1632a8;
+      --ink: #0f172a;
+      --muted: #5b6475;
+      --bg: #f5f7ff;
+      --card: rgba(255,255,255,0.84);
+      --line: rgba(0, 24, 113, 0.12);
+      --shadow: 0 18px 60px rgba(0, 24, 113, 0.12);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(22,50,168,0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(0,24,113,0.10), transparent 28%),
+        linear-gradient(180deg, #eef2ff 0%, #f8faff 45%, #eef3ff 100%);
+      min-height: 100vh;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 24px auto 60px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(245,248,255,0.86));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 280px;
+      height: 280px;
+      right: -80px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(22,50,168,0.18), transparent 70%);
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      left: -80px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(0,24,113,0.16), transparent 70%);
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .logo-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .logo-box {
+      min-width: 190px;
+      height: 72px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: linear-gradient(135deg, rgba(0,24,113,0.95), rgba(22,50,168,0.88));
+      box-shadow: 0 12px 28px rgba(0, 24, 113, 0.18);
+      color: white;
+      text-align: center;
+    }
+
+    .logo-box img {
+      max-height: 44px;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-fallback {
+      font-size: 0.92rem;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0,24,113,0.08);
+      color: var(--psut-blue);
+      border: 1px solid rgba(0,24,113,0.08);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 900px;
+      font-size: 1.06rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .subtitle .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      margin-top: 8px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      padding: 18px;
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin: 0 0 12px;
+      color: var(--psut-blue);
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--ink);
+      padding: 11px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,0.62);
+      transition: 160ms ease;
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover,
+    .nav a:focus {
+      border-color: rgba(0,24,113,0.18);
+      background: rgba(0,24,113,0.06);
+      transform: translateX(2px);
+      outline: none;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      color: var(--psut-blue);
+      line-height: 1.35;
+    }
+
+    .section-title .ar {
+      display: inline-block;
+      direction: rtl;
+      margin-inline-start: 6px;
+    }
+
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .section-note .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .question-grid.single {
+      grid-template-columns: 1fr;
+    }
+
+    .field {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,250,255,0.72));
+      border: 1px solid rgba(0,24,113,0.08);
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label,
+    .prompt {
+      font-weight: 700;
+      line-height: 1.55;
+      display: block;
+    }
+
+    .prompt .ar,
+    label .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      font-weight: 600;
+      color: #263248;
+      margin-top: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(0,24,113,0.14);
+      background: white;
+      padding: 14px 14px;
+      border-radius: 14px;
+      font: inherit;
+      color: var(--ink);
+      transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--psut-blue-2);
+      box-shadow: 0 0 0 4px rgba(22,50,168,0.12);
+      transform: translateY(-1px);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .choice-group,
+    .radio-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .radio-grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .choice {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: white;
+      border: 1px solid rgba(0,24,113,0.08);
+    }
+
+    .choice input {
+      margin-top: 2px;
+      accent-color: var(--psut-blue);
+    }
+
+    .choice span {
+      line-height: 1.5;
+    }
+
+    .choice .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      color: #324052;
+    }
+
+    .likert-table {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(0,24,113,0.08);
+      border-radius: 16px;
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    th, td {
+      padding: 14px 10px;
+      border-bottom: 1px solid rgba(0,24,113,0.08);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+      width: 42%;
+      font-weight: 600;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    td .ar,
+    th .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      color: #344055;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    td input[type="radio"] {
+      transform: scale(1.15);
+      accent-color: var(--psut-blue);
+    }
+
+    .scale-legend {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .scale-legend span {
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--muted);
+      background: rgba(0,24,113,0.04);
+      border: 1px solid rgba(0,24,113,0.08);
+      padding: 8px;
+      border-radius: 12px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .footnote {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 15px 22px;
+      border-radius: 16px;
+      font: inherit;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, var(--psut-blue), var(--psut-blue-2));
+      box-shadow: 0 14px 28px rgba(0,24,113,0.22);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+    }
+
+    button:hover,
+    button:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(0,24,113,0.26);
+      filter: brightness(1.03);
+      outline: none;
+    }
+
+    .helper-card {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(0,24,113,0.05);
+      border: 1px dashed rgba(0,24,113,0.18);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .helper-card code {
+      background: white;
+      padding: 3px 7px;
+      border-radius: 8px;
+      color: var(--psut-blue);
+      border: 1px solid rgba(0,24,113,0.12);
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .question-grid,
+      .radio-grid.two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 18px, 1000px);
+        margin-top: 10px;
+      }
+
+      .hero,
+      .panel,
+      .sidebar,
+      .section {
+        border-radius: 20px;
+      }
+
+      .hero,
+      .panel {
+        padding: 18px;
+      }
+
+      .section {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .logo-box {
+        min-width: 100%;
+      }
+
+      .scale-legend {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div class="brand-row">
+        <div class="logo-group">
+          <div class="logo-box" aria-label="PSUT logo area">
+            <!-- Replace with your real file path when ready: assets/psut-logo.png -->
+            <img src="assets/psut-logo.png" alt="PSUT logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <div class="logo-fallback" style="display:none;">PSUT Logo<br />Princess Sumaya University for Technology</div>
+          </div>
+          <div class="logo-box" aria-label="ChronoLearn logo area">
+            <!-- Replace with your real file path when ready: assets/chronolearn-logo.png -->
+            <img src="assets/chronolearn-logo.png" alt="ChronoLearn logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <div class="logo-fallback" style="display:none;">ChronoLearn Logo<br />كرونوليرن</div>
+          </div>
+        </div>
+        <div class="badge">PSUT Theme · #001871</div>
+      </div>
+
+      <h1>ChronoLearn Evaluation Questionnaire / استبيان تقييم كرونوليرن</h1>
+      <p class="subtitle">
+        This bilingual survey evaluates usability, learning effectiveness, content quality, performance, and overall experience with ChronoLearn.
+        <span class="ar">يقيس هذا الاستبيان الثنائي اللغة سهولة الاستخدام وفعالية التعلم وجودة المحتوى والأداء والتجربة العامة مع كرونوليرن.</span>
+      </p>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <nav class="nav">
+          <a href="#demographics">1. Participant Background</a>
+          <a href="#ux">2. Usability & UX</a>
+          <a href="#learning">3. Learning Effectiveness</a>
+          <a href="#features">4. Features Evaluation</a>
+          <a href="#content">5. Content Quality</a>
+          <a href="#performance">6. Performance</a>
+          <a href="#overall">7. Overall Evaluation</a>
+          <a href="#feedback">8. Open Feedback</a>
+        </nav>
+        <div class="helper-card">
+          For GitHub Pages, upload this file as <code>index.html</code> and place your logo files inside <code>assets/</code>.
+        </div>
+      </aside>
+
+      <main class="panel">
+        <form action="#" method="post">
+          <section class="section" id="demographics">
+            <h2 class="section-title">Section 1: Participant Background <span class="ar">القسم 1: البيانات الديموغرافية</span></h2>
+            <p class="section-note">
+              Please answer the following background questions.
+              <span class="ar">يرجى الإجابة عن الأسئلة التعريفية التالية.</span>
+            </p>
+            <div class="question-grid">
+              <div class="field">
+                <label for="age">What is your age group?<span class="ar">ما هي فئتك العمرية؟</span></label>
+                <select id="age" name="age">
+                  <option value="">Select / اختر</option>
+                  <option>Under 18 / أقل من 18</option>
+                  <option>18–22</option>
+                  <option>23–30</option>
+                  <option>30+ / 30 فأكثر</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="background">What is your educational or professional background?<span class="ar">ما هو مجالك التعليمي أو المهني؟</span></label>
+                <select id="background" name="background">
+                  <option value="">Select / اختر</option>
+                  <option>School student / طالب مدرسة</option>
+                  <option>University student / طالب جامعي</option>
+                  <option>Teacher / معلم</option>
+                  <option>Other / أخرى</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="ux">
+            <h2 class="section-title">Section 2: Usability & User Experience <span class="ar">القسم 2: سهولة الاستخدام وتجربة المستخدم</span></h2>
+            <p class="section-note">
+              Indicate your level of agreement with the following statements using the 1–5 Likert scale.
+              <span class="ar">حدد مستوى موافقتك على العبارات التالية باستخدام مقياس ليكرت من 1 إلى 5.</span>
+            </p>
+            <div class="scale-legend">
+              <span>1 = Strongly Disagree</span>
+              <span>2 = Disagree</span>
+              <span>3 = Neutral</span>
+              <span>4 = Agree</span>
+              <span>5 = Strongly Agree</span>
+            </div>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement <span class="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ChronoLearn is easy to use.<span class="ar">كرونوليرن سهل الاستخدام.</span></td>
+                    <td><input type="radio" name="ux_easy" value="1"></td><td><input type="radio" name="ux_easy" value="2"></td><td><input type="radio" name="ux_easy" value="3"></td><td><input type="radio" name="ux_easy" value="4"></td><td><input type="radio" name="ux_easy" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The interface is clear and understandable.<span class="ar">واجهة النظام واضحة وسهلة الفهم.</span></td>
+                    <td><input type="radio" name="ux_clear" value="1"></td><td><input type="radio" name="ux_clear" value="2"></td><td><input type="radio" name="ux_clear" value="3"></td><td><input type="radio" name="ux_clear" value="4"></td><td><input type="radio" name="ux_clear" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>I can navigate through ChronoLearn without difficulty.<span class="ar">أستطيع التنقل داخل كرونوليرن دون صعوبة.</span></td>
+                    <td><input type="radio" name="ux_nav" value="1"></td><td><input type="radio" name="ux_nav" value="2"></td><td><input type="radio" name="ux_nav" value="3"></td><td><input type="radio" name="ux_nav" value="4"></td><td><input type="radio" name="ux_nav" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>I quickly learned how to use ChronoLearn.<span class="ar">تعلمت استخدام كرونوليرن بسرعة.</span></td>
+                    <td><input type="radio" name="ux_learn" value="1"></td><td><input type="radio" name="ux_learn" value="2"></td><td><input type="radio" name="ux_learn" value="3"></td><td><input type="radio" name="ux_learn" value="4"></td><td><input type="radio" name="ux_learn" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="learning">
+            <h2 class="section-title">Section 3: Learning Effectiveness <span class="ar">القسم 3: فعالية التعلم</span></h2>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement <span class="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ChronoLearn improved my understanding of historical content.<span class="ar">ساعدني كرونوليرن على فهم المحتوى التاريخي بشكل أفضل.</span></td>
+                    <td><input type="radio" name="learn_understanding" value="1"></td><td><input type="radio" name="learn_understanding" value="2"></td><td><input type="radio" name="learn_understanding" value="3"></td><td><input type="radio" name="learn_understanding" value="4"></td><td><input type="radio" name="learn_understanding" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>ChronoLearn helps me retain historical information more effectively.<span class="ar">يساعدني كرونوليرن على الاحتفاظ بالمعلومات التاريخية بصورة أفضل.</span></td>
+                    <td><input type="radio" name="learn_retain" value="1"></td><td><input type="radio" name="learn_retain" value="2"></td><td><input type="radio" name="learn_retain" value="3"></td><td><input type="radio" name="learn_retain" value="4"></td><td><input type="radio" name="learn_retain" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>ChronoLearn makes learning history more engaging.<span class="ar">يجعل كرونوليرن تعلم التاريخ أكثر تفاعلاً وجاذبية.</span></td>
+                    <td><input type="radio" name="learn_engaging" value="1"></td><td><input type="radio" name="learn_engaging" value="2"></td><td><input type="radio" name="learn_engaging" value="3"></td><td><input type="radio" name="learn_engaging" value="4"></td><td><input type="radio" name="learn_engaging" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>ChronoLearn is more effective than traditional learning methods.<span class="ar">كرونوليرن أكثر فعالية من طرق التعلم التقليدية.</span></td>
+                    <td><input type="radio" name="learn_compare" value="1"></td><td><input type="radio" name="learn_compare" value="2"></td><td><input type="radio" name="learn_compare" value="3"></td><td><input type="radio" name="learn_compare" value="4"></td><td><input type="radio" name="learn_compare" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="features">
+            <h2 class="section-title">Section 4: Features Evaluation <span class="ar">القسم 4: تقييم الخصائص</span></h2>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Feature statement <span class="ar">عبارة الميزة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>The timeline feature enhances my understanding of historical events.<span class="ar">ميزة الخط الزمني تعزز فهمي للأحداث التاريخية.</span></td>
+                    <td><input type="radio" name="feat_timeline" value="1"></td><td><input type="radio" name="feat_timeline" value="2"></td><td><input type="radio" name="feat_timeline" value="3"></td><td><input type="radio" name="feat_timeline" value="4"></td><td><input type="radio" name="feat_timeline" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The search functionality helps me find information efficiently.<span class="ar">ميزة البحث تساعدني في الوصول إلى المعلومات بكفاءة.</span></td>
+                    <td><input type="radio" name="feat_search" value="1"></td><td><input type="radio" name="feat_search" value="2"></td><td><input type="radio" name="feat_search" value="3"></td><td><input type="radio" name="feat_search" value="4"></td><td><input type="radio" name="feat_search" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>AI-generated explanations improve my comprehension.<span class="ar">التفسيرات المولدة بالذكاء الاصطناعي تحسن استيعابي.</span></td>
+                    <td><input type="radio" name="feat_ai" value="1"></td><td><input type="radio" name="feat_ai" value="2"></td><td><input type="radio" name="feat_ai" value="3"></td><td><input type="radio" name="feat_ai" value="4"></td><td><input type="radio" name="feat_ai" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The knowledge graph helps me understand relationships between events.<span class="ar">مخطط المعرفة يساعدني على فهم العلاقات بين الأحداث.</span></td>
+                    <td><input type="radio" name="feat_graph" value="1"></td><td><input type="radio" name="feat_graph" value="2"></td><td><input type="radio" name="feat_graph" value="3"></td><td><input type="radio" name="feat_graph" value="4"></td><td><input type="radio" name="feat_graph" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The storyboard feature enhances my overall learning experience.<span class="ar">ميزة القصة المصورة تحسن تجربتي التعليمية بشكل عام.</span></td>
+                    <td><input type="radio" name="feat_storyboard" value="1"></td><td><input type="radio" name="feat_storyboard" value="2"></td><td><input type="radio" name="feat_storyboard" value="3"></td><td><input type="radio" name="feat_storyboard" value="4"></td><td><input type="radio" name="feat_storyboard" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="content">
+            <h2 class="section-title">Section 5: Content Quality <span class="ar">القسم 5: جودة المحتوى</span></h2>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement <span class="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>The information provided by ChronoLearn is accurate.<span class="ar">المعلومات التي يقدمها كرونوليرن دقيقة.</span></td>
+                    <td><input type="radio" name="content_accuracy" value="1"></td><td><input type="radio" name="content_accuracy" value="2"></td><td><input type="radio" name="content_accuracy" value="3"></td><td><input type="radio" name="content_accuracy" value="4"></td><td><input type="radio" name="content_accuracy" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The content provided by ChronoLearn is trustworthy.<span class="ar">المحتوى الذي يقدمه كرونوليرن موثوق.</span></td>
+                    <td><input type="radio" name="content_trust" value="1"></td><td><input type="radio" name="content_trust" value="2"></td><td><input type="radio" name="content_trust" value="3"></td><td><input type="radio" name="content_trust" value="4"></td><td><input type="radio" name="content_trust" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>The explanations are clear and easy to understand.<span class="ar">التفسيرات واضحة وسهلة الفهم.</span></td>
+                    <td><input type="radio" name="content_clarity" value="1"></td><td><input type="radio" name="content_clarity" value="2"></td><td><input type="radio" name="content_clarity" value="3"></td><td><input type="radio" name="content_clarity" value="4"></td><td><input type="radio" name="content_clarity" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="performance">
+            <h2 class="section-title">Section 6: Performance <span class="ar">القسم 6: الأداء</span></h2>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement <span class="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ChronoLearn loads quickly and performs efficiently.<span class="ar">يتم تحميل كرونوليرن بسرعة ويعمل بكفاءة.</span></td>
+                    <td><input type="radio" name="perf_speed" value="1"></td><td><input type="radio" name="perf_speed" value="2"></td><td><input type="radio" name="perf_speed" value="3"></td><td><input type="radio" name="perf_speed" value="4"></td><td><input type="radio" name="perf_speed" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>ChronoLearn operates reliably without technical issues.<span class="ar">يعمل كرونوليرن بشكل مستقر دون مشكلات تقنية.</span></td>
+                    <td><input type="radio" name="perf_reliable" value="1"></td><td><input type="radio" name="perf_reliable" value="2"></td><td><input type="radio" name="perf_reliable" value="3"></td><td><input type="radio" name="perf_reliable" value="4"></td><td><input type="radio" name="perf_reliable" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="overall">
+            <h2 class="section-title">Section 7: Overall Evaluation <span class="ar">القسم 7: التقييم العام</span></h2>
+            <div class="likert-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement <span class="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>I am satisfied with my overall experience using ChronoLearn.<span class="ar">أنا راضٍ عن تجربتي العامة في استخدام كرونوليرن.</span></td>
+                    <td><input type="radio" name="overall_satisfaction" value="1"></td><td><input type="radio" name="overall_satisfaction" value="2"></td><td><input type="radio" name="overall_satisfaction" value="3"></td><td><input type="radio" name="overall_satisfaction" value="4"></td><td><input type="radio" name="overall_satisfaction" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>I would recommend ChronoLearn to others.<span class="ar">أوصي باستخدام كرونوليرن للآخرين.</span></td>
+                    <td><input type="radio" name="overall_recommend" value="1"></td><td><input type="radio" name="overall_recommend" value="2"></td><td><input type="radio" name="overall_recommend" value="3"></td><td><input type="radio" name="overall_recommend" value="4"></td><td><input type="radio" name="overall_recommend" value="5"></td>
+                  </tr>
+                  <tr>
+                    <td>ChronoLearn is a valuable tool for learning history.<span class="ar">كرونوليرن أداة قيمة لتعلم التاريخ.</span></td>
+                    <td><input type="radio" name="overall_value" value="1"></td><td><input type="radio" name="overall_value" value="2"></td><td><input type="radio" name="overall_value" value="3"></td><td><input type="radio" name="overall_value" value="4"></td><td><input type="radio" name="overall_value" value="5"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="feedback">
+            <h2 class="section-title">Section 8: Open Feedback <span class="ar">القسم 8: الملاحظات المفتوحة</span></h2>
+            <div class="question-grid single">
+              <div class="field full">
+                <label for="strength">What do you consider the main strength of ChronoLearn?<span class="ar">ما أبرز نقطة قوة في كرونوليرن؟</span></label>
+                <textarea id="strength" name="strength" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
+              </div>
+              <div class="field full">
+                <label for="improve">What improvements would you suggest for ChronoLearn?<span class="ar">ما التحسينات التي تقترحها لكرونوليرن؟</span></label>
+                <textarea id="improve" name="improve" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="actions">
+            <p class="footnote">
+              This is a static GitHub Pages–friendly HTML form template. To collect responses, connect it to a backend service such as Formspree, Netlify Forms, or a custom endpoint.
+            </p>
+            <button type="submit">Submit / إرسال</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
