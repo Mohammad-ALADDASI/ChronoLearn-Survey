@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +18,7 @@
     }
 
     * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -121,19 +118,6 @@
       font-weight: 700;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(0,24,113,0.08);
-      color: var(--psut-blue);
-      border: 1px solid rgba(0,24,113,0.08);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-
     h1 {
       margin: 0;
       font-size: clamp(2rem, 5vw, 3.8rem);
@@ -150,11 +134,13 @@
       color: var(--muted);
     }
 
-    .subtitle .ar {
+    .ar {
       display: block;
       direction: rtl;
       text-align: right;
-      margin-top: 8px;
+      margin-top: 6px;
+      line-height: 1.6;
+      unicode-bidi: isolate;
     }
 
     .layout {
@@ -200,6 +186,7 @@
       background: rgba(255,255,255,0.62);
       transition: 160ms ease;
       font-size: 0.95rem;
+      line-height: 1.45;
     }
 
     .nav a:hover,
@@ -210,14 +197,8 @@
       outline: none;
     }
 
-    .panel {
-      padding: 24px;
-    }
-
-    form {
-      display: grid;
-      gap: 20px;
-    }
+    .panel { padding: 24px; }
+    form { display: grid; gap: 20px; }
 
     .section {
       border: 1px solid var(--line);
@@ -233,26 +214,11 @@
       line-height: 1.35;
     }
 
-    .section-title .ar {
-      display: block;
-      direction: rtl;
-      text-align: right;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
-
     .section-note {
       margin: 0 0 18px;
       color: var(--muted);
       font-size: 0.96rem;
       line-height: 1.7;
-    }
-
-    .section-note .ar {
-      display: block;
-      direction: rtl;
-      text-align: right;
-      margin-top: 6px;
     }
 
     .question-grid {
@@ -261,9 +227,7 @@
       gap: 18px;
     }
 
-    .question-grid.single {
-      grid-template-columns: 1fr;
-    }
+    .question-grid.single { grid-template-columns: 1fr; }
 
     .field {
       display: grid;
@@ -274,28 +238,27 @@
       border: 1px solid rgba(0,24,113,0.08);
     }
 
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field.full { grid-column: 1 / -1; }
 
     label,
-    .prompt {
+    .prompt,
+    legend {
       font-weight: 700;
       line-height: 1.55;
       display: block;
     }
 
-    .prompt .ar,
-    label .ar {
-      display: block;
-      direction: rtl;
-      text-align: right;
-      font-weight: 600;
-      color: #263248;
-      margin-top: 4px;
-      line-height: 1.6;
-      white-space: normal;
-      word-break: break-word;
+    legend {
+      padding: 0;
+      margin-bottom: 10px;
+      border: 0;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      min-width: 0;
     }
 
     input[type="text"],
@@ -326,15 +289,13 @@
       resize: vertical;
     }
 
-    .choice-group,
-    .radio-grid {
+    .radio-grid,
+    .choice-group {
       display: grid;
       gap: 10px;
     }
 
-    .radio-grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .radio-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .choice {
       display: flex;
@@ -344,22 +305,12 @@
       border-radius: 14px;
       background: white;
       border: 1px solid rgba(0,24,113,0.08);
+      line-height: 1.5;
     }
 
     .choice input {
       margin-top: 2px;
       accent-color: var(--psut-blue);
-    }
-
-    .choice span {
-      line-height: 1.5;
-    }
-
-    .choice .ar {
-      display: block;
-      direction: rtl;
-      text-align: right;
-      color: #324052;
     }
 
     .likert-table {
@@ -373,7 +324,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 680px;
+      min-width: 760px;
     }
 
     th, td {
@@ -381,30 +332,16 @@
       border-bottom: 1px solid rgba(0,24,113,0.08);
       text-align: center;
       font-size: 0.95rem;
+      vertical-align: top;
     }
 
     th:first-child, td:first-child {
       text-align: left;
-      width: 42%;
+      width: 40%;
       font-weight: 600;
     }
 
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    td .ar,
-    th .ar {
-      display: block;
-      direction: rtl;
-      text-align: right;
-      color: #344055;
-      font-weight: 500;
-      margin-top: 6px;
-      line-height: 1.6;
-      white-space: normal;
-      word-break: break-word;
-    }
+    tbody tr:last-child td { border-bottom: none; }
 
     td input[type="radio"] {
       transform: scale(1.15);
@@ -413,7 +350,7 @@
 
     .scale-legend {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 8px;
       margin-top: 8px;
     }
@@ -426,6 +363,14 @@
       border: 1px solid rgba(0,24,113,0.08);
       padding: 8px;
       border-radius: 12px;
+      line-height: 1.45;
+    }
+
+    .consent-box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,24,113,0.05);
+      border: 1px solid rgba(0,24,113,0.12);
     }
 
     .actions {
@@ -441,7 +386,7 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.6;
-      max-width: 700px;
+      max-width: 760px;
     }
 
     button {
@@ -465,37 +410,23 @@
       outline: none;
     }
 
-    .helper-card {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(0,24,113,0.05);
-      border: 1px dashed rgba(0,24,113,0.18);
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .helper-card code {
-      background: white;
-      padding: 3px 7px;
-      border-radius: 8px;
-      color: var(--psut-blue);
-      border: 1px solid rgba(0,24,113,0.12);
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     @media (max-width: 980px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: static;
-      }
-
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
       .question-grid,
-      .radio-grid.two {
-        grid-template-columns: 1fr;
-      }
+      .radio-grid.two { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -507,30 +438,14 @@
       .hero,
       .panel,
       .sidebar,
-      .section {
-        border-radius: 20px;
-      }
+      .section { border-radius: 20px; }
 
       .hero,
-      .panel {
-        padding: 18px;
-      }
-
-      .section {
-        padding: 16px;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .logo-box {
-        min-width: 100%;
-      }
-
-      .scale-legend {
-        grid-template-columns: 1fr;
-      }
+      .panel { padding: 18px; }
+      .section { padding: 16px; }
+      h1 { font-size: 1.8rem; }
+      .logo-box { min-width: 100%; }
+      .scale-legend { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -540,69 +455,64 @@
       <div class="brand-row">
         <div class="logo-group">
           <div class="logo-box" aria-label="PSUT logo area">
-            <!-- Replace with your real file path when ready: assets/psut-logo.png -->
-            <img src="assets/Psut_Logo.png" alt="PSUT logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <img src="assets/PSUT_Logo.png" alt="PSUT logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
             <div class="logo-fallback" style="display:none;">PSUT Logo<br />Princess Sumaya University for Technology</div>
           </div>
           <div class="logo-box" aria-label="ChronoLearn logo area">
-            <!-- Replace with your real file path when ready: assets/chronolearn-logo.png -->
             <img src="assets/ChronoLearn_Logo.png" alt="ChronoLearn logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-            <div class="logo-fallback" style="display:none;">ChronoLearn Logo<br />كرونوليرن</div>
+            <div class="logo-fallback" style="display:none;">ChronoLearn Logo<br /><span class="ar" lang="ar">كرونوليرن</span></div>
           </div>
         </div>
-        <div class="badge">PSUT Theme · #001871</div>
       </div>
 
-      <h1>ChronoLearn Evaluation Questionnaire / استبيان تقييم كرونوليرن</h1>
+      <h1>ChronoLearn Evaluation Questionnaire / <span lang="ar">استبيان تقييم كرونوليرن</span></h1>
       <p class="subtitle">
         This bilingual survey evaluates usability, learning effectiveness, content quality, performance, and overall experience with ChronoLearn.
-        <span class="ar">يقيس هذا الاستبيان الثنائي اللغة سهولة الاستخدام وفعالية التعلم وجودة المحتوى والأداء والتجربة العامة مع كرونوليرن.</span>
+        <span class="ar" lang="ar">يقيس هذا الاستبيان الثنائي اللغة سهولة الاستخدام وفعالية التعلم وجودة المحتوى والأداء والتجربة العامة مع كرونوليرن.</span>
       </p>
     </header>
 
     <div class="layout">
-      <aside class="sidebar">
-        <h2>Sections</h2>
+      <aside class="sidebar" aria-label="Survey navigation">
+        <h2>Sections / <span lang="ar">الأقسام</span></h2>
         <nav class="nav">
-          <a href="#demographics">1. Participant Background</a>
-          <a href="#ux">2. Usability & UX</a>
-          <a href="#learning">3. Learning Effectiveness</a>
-          <a href="#features">4. Features Evaluation</a>
-          <a href="#content">5. Content Quality</a>
-          <a href="#performance">6. Performance</a>
-          <a href="#overall">7. Overall Evaluation</a>
-          <a href="#feedback">8. Open Feedback</a>
+          <a href="#demographics">1. Demographic Information / <span lang="ar">البيانات الديموغرافية</span></a>
+          <a href="#consent">2. Consent / <span lang="ar">الموافقة</span></a>
+          <a href="#ux">3. Usability and UX / <span lang="ar">سهولة الاستخدام وتجربة المستخدم</span></a>
+          <a href="#learning">4. Learning Effectiveness / <span lang="ar">فعالية التعلم</span></a>
+          <a href="#features">5. Feature Evaluation / <span lang="ar">تقييم الخصائص</span></a>
+          <a href="#content">6. Content Quality / <span lang="ar">جودة المحتوى</span></a>
+          <a href="#performance">7. Performance / <span lang="ar">الأداء</span></a>
+          <a href="#overall">8. Overall Assessment / <span lang="ar">التقييم العام</span></a>
+          <a href="#feedback">9. Open Feedback / <span lang="ar">الملاحظات المفتوحة</span></a>
         </nav>
-        <div class="helper-card">
-          For GitHub Pages, upload this file as <code>index.html</code> and place your logo files inside <code>assets/</code>.
-        </div>
       </aside>
 
       <main class="panel">
-        <form action="#" method="post">
+        <form action="/submit-survey" method="post" novalidate>
           <section class="section" id="demographics">
             <p class="section-note">
-              Participation in this study is voluntary. Your responses will remain anonymous and will be used only for academic research purposes. Fields marked with * are required, except for the open-ended questions at the end.
-              <span class="ar">المشاركة في هذه الدراسة طوعية. ستبقى إجاباتك مجهولة الهوية وستُستخدم لأغراض البحث الأكاديمي فقط. الحقول المعلّمة بعلامة * مطلوبة، باستثناء الأسئلة المفتوحة في نهاية الاستبيان.</span>
+              Participation in this study is voluntary. No directly identifying information is requested in this questionnaire. Responses will be treated confidentially and used only for academic research purposes within the scope of this study. Fields marked with * are required, except for the open-ended questions at the end.
+              <span class="ar" lang="ar">المشاركة في هذه الدراسة طوعية. لا يطلب هذا الاستبيان أي معلومات تعريفية مباشرة. ستُعامل الإجابات بسرية وستُستخدم فقط لأغراض البحث الأكاديمي ضمن نطاق هذه الدراسة. الحقول المعلّمة بعلامة * مطلوبة، باستثناء الأسئلة المفتوحة في نهاية الاستبيان.</span>
             </p>
-            <h2 class="section-title">Section 1: Participant Background <span class="ar">القسم 1: البيانات الديموغرافية</span></h2>
+            <h2 class="section-title">Section 1: Demographic Information <span class="ar" lang="ar">القسم 1: البيانات الديموغرافية</span></h2>
             <p class="section-note">
               Please answer the following background questions.
-              <span class="ar">يرجى الإجابة عن الأسئلة التعريفية التالية.</span>
+              <span class="ar" lang="ar">يرجى الإجابة عن الأسئلة التعريفية التالية.</span>
             </p>
             <div class="question-grid">
               <div class="field">
-                <label for="age">What is your age group? *<span class="ar">ما هي فئتك العمرية؟ *</span></label>
+                <label for="age">What is your age group? *<span class="ar" lang="ar">ما هي فئتك العمرية؟ *</span></label>
                 <select id="age" name="age" required>
                   <option value="">Select / اختر</option>
                   <option>Under 18 / أقل من 18</option>
                   <option>18–22</option>
                   <option>23–30</option>
-                  <option>30+ / 30 فأكثر</option>
+                  <option>31 and above / 31 فأكثر</option>
                 </select>
               </div>
               <div class="field">
-                <label for="background">What is your educational or professional background? *<span class="ar">ما هو مجالك التعليمي أو المهني؟ *</span></label>
+                <label for="background">What is your educational or professional background? *<span class="ar" lang="ar">ما هو مجالك التعليمي أو المهني؟ *</span></label>
                 <select id="background" name="background" required>
                   <option value="">Select / اختر</option>
                   <option>School student / طالب مدرسة</option>
@@ -613,54 +523,70 @@
               </div>
             </div>
             <div class="field full" style="margin-top:18px;">
-              <div class="prompt">How would you rate your prior knowledge of Palestinian and Jordanian history? *<span class="ar">كيف تقيّم معرفتك السابقة بالتاريخ الفلسطيني والأردني؟ *</span></div>
-              <div class="radio-grid two">
-                <label class="choice"><input type="radio" name="history_knowledge" value="1" required><span>1 – Very low <span class="ar">1 – منخفضة جداً</span></span></label>
-                <label class="choice"><input type="radio" name="history_knowledge" value="2" required><span>2 – Low <span class="ar">2 – منخفضة</span></span></label>
-                <label class="choice"><input type="radio" name="history_knowledge" value="3" required><span>3 – Moderate <span class="ar">3 – متوسطة</span></span></label>
-                <label class="choice"><input type="radio" name="history_knowledge" value="4" required><span>4 – High <span class="ar">4 – عالية</span></span></label>
-                <label class="choice"><input type="radio" name="history_knowledge" value="5" required><span>5 – Very high <span class="ar">5 – عالية جداً</span></span></label>
-              </div>
+              <fieldset>
+                <legend>How would you rate your prior knowledge of Palestinian and Jordanian history? *<span class="ar" lang="ar">كيف تقيّم معرفتك السابقة بالتاريخ الفلسطيني والأردني؟ *</span></legend>
+                <div class="radio-grid two">
+                  <label class="choice"><input type="radio" name="history_knowledge" value="1" required><span>1 – Very low <span class="ar" lang="ar">1 – منخفضة جداً</span></span></label>
+                  <label class="choice"><input type="radio" name="history_knowledge" value="2"><span>2 – Low <span class="ar" lang="ar">2 – منخفضة</span></span></label>
+                  <label class="choice"><input type="radio" name="history_knowledge" value="3"><span>3 – Moderate <span class="ar" lang="ar">3 – متوسطة</span></span></label>
+                  <label class="choice"><input type="radio" name="history_knowledge" value="4"><span>4 – High <span class="ar" lang="ar">4 – عالية</span></span></label>
+                  <label class="choice"><input type="radio" name="history_knowledge" value="5"><span>5 – Very high <span class="ar" lang="ar">5 – عالية جداً</span></span></label>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="section" id="consent">
+            <h2 class="section-title">Section 2: Consent <span class="ar" lang="ar">القسم 2: الموافقة</span></h2>
+            <div class="consent-box">
+              <label class="choice" for="consent-check">
+                <input id="consent-check" type="checkbox" name="consent" required>
+                <span>
+                  I have read the study information above and I voluntarily agree to participate in this research.
+                  <span class="ar" lang="ar">لقد قرأت المعلومات الخاصة بالدراسة أعلاه، وأوافق طوعاً على المشاركة في هذا البحث.</span>
+                </span>
+              </label>
             </div>
           </section>
 
           <section class="section" id="ux">
-            <h2 class="section-title">Section 2: Usability & User Experience <span class="ar">القسم 2: سهولة الاستخدام وتجربة المستخدم</span></h2>
+            <h2 class="section-title">Section 3: Usability and User Experience <span class="ar" lang="ar">القسم 3: سهولة الاستخدام وتجربة المستخدم</span></h2>
             <p class="section-note">
               Indicate your level of agreement with the following statements using the 1–5 Likert scale.
-              <span class="ar">حدد مستوى موافقتك على العبارات التالية باستخدام مقياس ليكرت من 1 إلى 5.</span>
+              <span class="ar" lang="ar">حدد مستوى موافقتك على العبارات التالية باستخدام مقياس ليكرت من 1 إلى 5.</span>
             </p>
-            <div class="scale-legend">
-              <span>1 = Strongly Disagree<br><span class="ar">1 = لا أوافق بشدة</span></span>
-              <span>2 = Disagree<br><span class="ar">2 = لا أوافق</span></span>
-              <span>3 = Neutral<br><span class="ar">3 = محايد</span></span>
-              <span>4 = Agree<br><span class="ar">4 = أوافق</span></span>
-              <span>5 = Strongly Agree<br><span class="ar">5 = أوافق بشدة</span></span>
+            <div class="scale-legend" aria-hidden="true">
+              <span>1 = Strongly Disagree<br><span class="ar" lang="ar">1 = لا أوافق بشدة</span></span>
+              <span>2 = Disagree<br><span class="ar" lang="ar">2 = لا أوافق</span></span>
+              <span>3 = Neutral<br><span class="ar" lang="ar">3 = محايد</span></span>
+              <span>4 = Agree<br><span class="ar" lang="ar">4 = أوافق</span></span>
+              <span>5 = Strongly Agree<br><span class="ar" lang="ar">5 = أوافق بشدة</span></span>
+              <span>N/A = Not applicable<br><span class="ar" lang="ar">غير منطبق</span></span>
             </div>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Statement <span class="ar">العبارة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Statement <span class="ar" lang="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ChronoLearn is easy to use.<span class="ar">كرونوليرن سهل الاستخدام.</span></td>
-                    <td><input type="radio" name="ux_easy" value="1" required></td><td><input type="radio" name="ux_easy" value="2" required></td><td><input type="radio" name="ux_easy" value="3" required></td><td><input type="radio" name="ux_easy" value="4" required></td><td><input type="radio" name="ux_easy" value="5" required></td>
+                    <td>ChronoLearn is easy to use.<span class="ar" lang="ar">كرونوليرن سهل الاستخدام.</span></td>
+                    <td><input type="radio" name="ux_easy" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_easy" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_easy" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_easy" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_easy" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_easy" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The interface is clear and understandable.<span class="ar">واجهة النظام واضحة وسهلة الفهم.</span></td>
-                    <td><input type="radio" name="ux_clear" value="1" required></td><td><input type="radio" name="ux_clear" value="2" required></td><td><input type="radio" name="ux_clear" value="3" required></td><td><input type="radio" name="ux_clear" value="4" required></td><td><input type="radio" name="ux_clear" value="5" required></td>
+                    <td>The interface is clear and understandable.<span class="ar" lang="ar">واجهة النظام واضحة وسهلة الفهم.</span></td>
+                    <td><input type="radio" name="ux_clear" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_clear" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_clear" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_clear" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_clear" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_clear" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>I can navigate through ChronoLearn without difficulty.<span class="ar">أستطيع التنقل داخل كرونوليرن دون صعوبة.</span></td>
-                    <td><input type="radio" name="ux_nav" value="1" required></td><td><input type="radio" name="ux_nav" value="2" required></td><td><input type="radio" name="ux_nav" value="3" required></td><td><input type="radio" name="ux_nav" value="4" required></td><td><input type="radio" name="ux_nav" value="5" required></td>
+                    <td>I can navigate through ChronoLearn without difficulty.<span class="ar" lang="ar">أستطيع التنقل داخل كرونوليرن دون صعوبة.</span></td>
+                    <td><input type="radio" name="ux_nav" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_nav" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_nav" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_nav" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_nav" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_nav" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>I quickly learned how to use ChronoLearn.<span class="ar">تعلمت استخدام كرونوليرن بسرعة.</span></td>
-                    <td><input type="radio" name="ux_learn" value="1" required></td><td><input type="radio" name="ux_learn" value="2" required></td><td><input type="radio" name="ux_learn" value="3" required></td><td><input type="radio" name="ux_learn" value="4" required></td><td><input type="radio" name="ux_learn" value="5" required></td>
+                    <td>I quickly learned how to use ChronoLearn.<span class="ar" lang="ar">تعلمت استخدام كرونوليرن بسرعة.</span></td>
+                    <td><input type="radio" name="ux_learn" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_learn" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_learn" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_learn" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_learn" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_learn" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -668,31 +594,31 @@
           </section>
 
           <section class="section" id="learning">
-            <h2 class="section-title">Section 3: Learning Effectiveness <span class="ar">القسم 3: فعالية التعلم</span></h2>
+            <h2 class="section-title">Section 4: Learning Effectiveness <span class="ar" lang="ar">القسم 4: فعالية التعلم</span></h2>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Statement <span class="ar">العبارة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Statement <span class="ar" lang="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ChronoLearn improved my understanding of historical content.<span class="ar">ساعدني كرونوليرن على فهم المحتوى التاريخي بشكل أفضل.</span></td>
-                    <td><input type="radio" name="learn_understanding" value="1" required></td><td><input type="radio" name="learn_understanding" value="2" required></td><td><input type="radio" name="learn_understanding" value="3" required></td><td><input type="radio" name="learn_understanding" value="4" required></td><td><input type="radio" name="learn_understanding" value="5" required></td>
+                    <td>ChronoLearn improved my understanding of historical content.<span class="ar" lang="ar">ساعدني كرونوليرن على فهم المحتوى التاريخي بشكل أفضل.</span></td>
+                    <td><input type="radio" name="learn_understanding" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="learn_understanding" value="2" aria-label="Disagree"></td><td><input type="radio" name="learn_understanding" value="3" aria-label="Neutral"></td><td><input type="radio" name="learn_understanding" value="4" aria-label="Agree"></td><td><input type="radio" name="learn_understanding" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="learn_understanding" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>ChronoLearn helps me retain historical information more effectively.<span class="ar">يساعدني كرونوليرن على الاحتفاظ بالمعلومات التاريخية بصورة أفضل.</span></td>
-                    <td><input type="radio" name="learn_retain" value="1" required></td><td><input type="radio" name="learn_retain" value="2" required></td><td><input type="radio" name="learn_retain" value="3" required></td><td><input type="radio" name="learn_retain" value="4" required></td><td><input type="radio" name="learn_retain" value="5" required></td>
+                    <td>ChronoLearn helps me retain historical information more effectively.<span class="ar" lang="ar">يساعدني كرونوليرن على الاحتفاظ بالمعلومات التاريخية بصورة أفضل.</span></td>
+                    <td><input type="radio" name="learn_retain" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="learn_retain" value="2" aria-label="Disagree"></td><td><input type="radio" name="learn_retain" value="3" aria-label="Neutral"></td><td><input type="radio" name="learn_retain" value="4" aria-label="Agree"></td><td><input type="radio" name="learn_retain" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="learn_retain" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>ChronoLearn makes learning history more engaging.<span class="ar">يجعل كرونوليرن تعلم التاريخ أكثر تفاعلاً وجاذبية.</span></td>
-                    <td><input type="radio" name="learn_engaging" value="1" required></td><td><input type="radio" name="learn_engaging" value="2" required></td><td><input type="radio" name="learn_engaging" value="3" required></td><td><input type="radio" name="learn_engaging" value="4" required></td><td><input type="radio" name="learn_engaging" value="5" required></td>
+                    <td>ChronoLearn makes learning history more engaging.<span class="ar" lang="ar">يجعل كرونوليرن تعلم التاريخ أكثر تفاعلاً وجاذبية.</span></td>
+                    <td><input type="radio" name="learn_engaging" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="learn_engaging" value="2" aria-label="Disagree"></td><td><input type="radio" name="learn_engaging" value="3" aria-label="Neutral"></td><td><input type="radio" name="learn_engaging" value="4" aria-label="Agree"></td><td><input type="radio" name="learn_engaging" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="learn_engaging" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>ChronoLearn is more effective than traditional learning methods.<span class="ar">كرونوليرن أكثر فعالية من طرق التعلم التقليدية.</span></td>
-                    <td><input type="radio" name="learn_compare" value="1" required></td><td><input type="radio" name="learn_compare" value="2" required></td><td><input type="radio" name="learn_compare" value="3" required></td><td><input type="radio" name="learn_compare" value="4" required></td><td><input type="radio" name="learn_compare" value="5" required></td>
+                    <td>ChronoLearn is more effective than traditional learning methods.<span class="ar" lang="ar">كرونوليرن أكثر فعالية من طرق التعلم التقليدية.</span></td>
+                    <td><input type="radio" name="learn_compare" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="learn_compare" value="2" aria-label="Disagree"></td><td><input type="radio" name="learn_compare" value="3" aria-label="Neutral"></td><td><input type="radio" name="learn_compare" value="4" aria-label="Agree"></td><td><input type="radio" name="learn_compare" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="learn_compare" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -700,35 +626,39 @@
           </section>
 
           <section class="section" id="features">
-            <h2 class="section-title">Section 4: Features Evaluation <span class="ar">القسم 4: تقييم الخصائص</span></h2>
+            <h2 class="section-title">Section 5: Feature Evaluation <span class="ar" lang="ar">القسم 5: تقييم الخصائص</span></h2>
+            <p class="section-note">
+              If you did not use a feature, please select N/A.
+              <span class="ar" lang="ar">إذا لم تستخدم إحدى الميزات، يرجى اختيار غير منطبق.</span>
+            </p>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Feature statement <span class="ar">عبارة الميزة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Feature statement <span class="ar" lang="ar">عبارة الميزة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>The timeline feature enhances my understanding of historical events.<span class="ar">ميزة الخط الزمني تعزز فهمي للأحداث التاريخية.</span></td>
-                    <td><input type="radio" name="feat_timeline" value="1" required></td><td><input type="radio" name="feat_timeline" value="2" required></td><td><input type="radio" name="feat_timeline" value="3" required></td><td><input type="radio" name="feat_timeline" value="4" required></td><td><input type="radio" name="feat_timeline" value="5" required></td>
+                    <td>The timeline feature enhances my understanding of historical events.<span class="ar" lang="ar">ميزة الخط الزمني تعزز فهمي للأحداث التاريخية.</span></td>
+                    <td><input type="radio" name="feat_timeline" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="feat_timeline" value="2" aria-label="Disagree"></td><td><input type="radio" name="feat_timeline" value="3" aria-label="Neutral"></td><td><input type="radio" name="feat_timeline" value="4" aria-label="Agree"></td><td><input type="radio" name="feat_timeline" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="feat_timeline" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The search functionality helps me find information efficiently.<span class="ar">ميزة البحث تساعدني في الوصول إلى المعلومات بكفاءة.</span></td>
-                    <td><input type="radio" name="feat_search" value="1" required></td><td><input type="radio" name="feat_search" value="2" required></td><td><input type="radio" name="feat_search" value="3" required></td><td><input type="radio" name="feat_search" value="4" required></td><td><input type="radio" name="feat_search" value="5" required></td>
+                    <td>The search functionality helps me find information efficiently.<span class="ar" lang="ar">ميزة البحث تساعدني في الوصول إلى المعلومات بكفاءة.</span></td>
+                    <td><input type="radio" name="feat_search" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="feat_search" value="2" aria-label="Disagree"></td><td><input type="radio" name="feat_search" value="3" aria-label="Neutral"></td><td><input type="radio" name="feat_search" value="4" aria-label="Agree"></td><td><input type="radio" name="feat_search" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="feat_search" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>AI-generated explanations improve my comprehension.<span class="ar">التفسيرات المولدة بالذكاء الاصطناعي تحسن استيعابي.</span></td>
-                    <td><input type="radio" name="feat_ai" value="1" required></td><td><input type="radio" name="feat_ai" value="2" required></td><td><input type="radio" name="feat_ai" value="3" required></td><td><input type="radio" name="feat_ai" value="4" required></td><td><input type="radio" name="feat_ai" value="5" required></td>
+                    <td>AI-generated explanations improve my comprehension.<span class="ar" lang="ar">التفسيرات المولدة بالذكاء الاصطناعي تحسن استيعابي.</span></td>
+                    <td><input type="radio" name="feat_ai" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="feat_ai" value="2" aria-label="Disagree"></td><td><input type="radio" name="feat_ai" value="3" aria-label="Neutral"></td><td><input type="radio" name="feat_ai" value="4" aria-label="Agree"></td><td><input type="radio" name="feat_ai" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="feat_ai" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The knowledge graph helps me understand relationships between events.<span class="ar">مخطط المعرفة يساعدني على فهم العلاقات بين الأحداث.</span></td>
-                    <td><input type="radio" name="feat_graph" value="1" required></td><td><input type="radio" name="feat_graph" value="2" required></td><td><input type="radio" name="feat_graph" value="3" required></td><td><input type="radio" name="feat_graph" value="4" required></td><td><input type="radio" name="feat_graph" value="5" required></td>
+                    <td>The knowledge graph helps me understand relationships between events.<span class="ar" lang="ar">مخطط المعرفة يساعدني على فهم العلاقات بين الأحداث.</span></td>
+                    <td><input type="radio" name="feat_graph" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="feat_graph" value="2" aria-label="Disagree"></td><td><input type="radio" name="feat_graph" value="3" aria-label="Neutral"></td><td><input type="radio" name="feat_graph" value="4" aria-label="Agree"></td><td><input type="radio" name="feat_graph" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="feat_graph" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The storyboard feature enhances my overall learning experience.<span class="ar">ميزة القصة المصورة تحسن تجربتي التعليمية بشكل عام.</span></td>
-                    <td><input type="radio" name="feat_storyboard" value="1" required></td><td><input type="radio" name="feat_storyboard" value="2" required></td><td><input type="radio" name="feat_storyboard" value="3" required></td><td><input type="radio" name="feat_storyboard" value="4" required></td><td><input type="radio" name="feat_storyboard" value="5" required></td>
+                    <td>The storyboard feature enhances my overall learning experience.<span class="ar" lang="ar">ميزة القصة المصورة تحسن تجربتي التعليمية بشكل عام.</span></td>
+                    <td><input type="radio" name="feat_storyboard" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="feat_storyboard" value="2" aria-label="Disagree"></td><td><input type="radio" name="feat_storyboard" value="3" aria-label="Neutral"></td><td><input type="radio" name="feat_storyboard" value="4" aria-label="Agree"></td><td><input type="radio" name="feat_storyboard" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="feat_storyboard" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -736,27 +666,27 @@
           </section>
 
           <section class="section" id="content">
-            <h2 class="section-title">Section 5: Content Quality <span class="ar">القسم 5: جودة المحتوى</span></h2>
+            <h2 class="section-title">Section 6: Content Quality <span class="ar" lang="ar">القسم 6: جودة المحتوى</span></h2>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Statement <span class="ar">العبارة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Statement <span class="ar" lang="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>The information provided by ChronoLearn is accurate.<span class="ar">المعلومات التي يقدمها كرونوليرن دقيقة.</span></td>
-                    <td><input type="radio" name="content_accuracy" value="1" required></td><td><input type="radio" name="content_accuracy" value="2" required></td><td><input type="radio" name="content_accuracy" value="3" required></td><td><input type="radio" name="content_accuracy" value="4" required></td><td><input type="radio" name="content_accuracy" value="5" required></td>
+                    <td>The information provided by ChronoLearn is accurate.<span class="ar" lang="ar">المعلومات التي يقدمها كرونوليرن دقيقة.</span></td>
+                    <td><input type="radio" name="content_accuracy" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="content_accuracy" value="2" aria-label="Disagree"></td><td><input type="radio" name="content_accuracy" value="3" aria-label="Neutral"></td><td><input type="radio" name="content_accuracy" value="4" aria-label="Agree"></td><td><input type="radio" name="content_accuracy" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="content_accuracy" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The content provided by ChronoLearn is trustworthy.<span class="ar">المحتوى الذي يقدمه كرونوليرن موثوق.</span></td>
-                    <td><input type="radio" name="content_trust" value="1" required></td><td><input type="radio" name="content_trust" value="2" required></td><td><input type="radio" name="content_trust" value="3" required></td><td><input type="radio" name="content_trust" value="4" required></td><td><input type="radio" name="content_trust" value="5" required></td>
+                    <td>The content provided by ChronoLearn is trustworthy.<span class="ar" lang="ar">المحتوى الذي يقدمه كرونوليرن موثوق.</span></td>
+                    <td><input type="radio" name="content_trust" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="content_trust" value="2" aria-label="Disagree"></td><td><input type="radio" name="content_trust" value="3" aria-label="Neutral"></td><td><input type="radio" name="content_trust" value="4" aria-label="Agree"></td><td><input type="radio" name="content_trust" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="content_trust" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>The explanations are clear and easy to understand.<span class="ar">التفسيرات واضحة وسهلة الفهم.</span></td>
-                    <td><input type="radio" name="content_clarity" value="1" required></td><td><input type="radio" name="content_clarity" value="2" required></td><td><input type="radio" name="content_clarity" value="3" required></td><td><input type="radio" name="content_clarity" value="4" required></td><td><input type="radio" name="content_clarity" value="5" required></td>
+                    <td>The explanations are clear and easy to understand.<span class="ar" lang="ar">التفسيرات واضحة وسهلة الفهم.</span></td>
+                    <td><input type="radio" name="content_clarity" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="content_clarity" value="2" aria-label="Disagree"></td><td><input type="radio" name="content_clarity" value="3" aria-label="Neutral"></td><td><input type="radio" name="content_clarity" value="4" aria-label="Agree"></td><td><input type="radio" name="content_clarity" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="content_clarity" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -764,23 +694,23 @@
           </section>
 
           <section class="section" id="performance">
-            <h2 class="section-title">Section 6: Performance <span class="ar">القسم 6: الأداء</span></h2>
+            <h2 class="section-title">Section 7: Performance <span class="ar" lang="ar">القسم 7: الأداء</span></h2>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Statement <span class="ar">العبارة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Statement <span class="ar" lang="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ChronoLearn loads quickly and performs efficiently.<span class="ar">يتم تحميل كرونوليرن بسرعة ويعمل بكفاءة.</span></td>
-                    <td><input type="radio" name="perf_speed" value="1" required></td><td><input type="radio" name="perf_speed" value="2" required></td><td><input type="radio" name="perf_speed" value="3" required></td><td><input type="radio" name="perf_speed" value="4" required></td><td><input type="radio" name="perf_speed" value="5" required></td>
+                    <td>ChronoLearn loads quickly and performs efficiently.<span class="ar" lang="ar">يتم تحميل كرونوليرن بسرعة ويعمل بكفاءة.</span></td>
+                    <td><input type="radio" name="perf_speed" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="perf_speed" value="2" aria-label="Disagree"></td><td><input type="radio" name="perf_speed" value="3" aria-label="Neutral"></td><td><input type="radio" name="perf_speed" value="4" aria-label="Agree"></td><td><input type="radio" name="perf_speed" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="perf_speed" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>ChronoLearn operates reliably without technical issues.<span class="ar">يعمل كرونوليرن بشكل مستقر دون مشكلات تقنية.</span></td>
-                    <td><input type="radio" name="perf_reliable" value="1" required></td><td><input type="radio" name="perf_reliable" value="2" required></td><td><input type="radio" name="perf_reliable" value="3" required></td><td><input type="radio" name="perf_reliable" value="4" required></td><td><input type="radio" name="perf_reliable" value="5" required></td>
+                    <td>ChronoLearn operates reliably without technical issues.<span class="ar" lang="ar">يعمل كرونوليرن بشكل مستقر دون مشكلات تقنية.</span></td>
+                    <td><input type="radio" name="perf_reliable" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="perf_reliable" value="2" aria-label="Disagree"></td><td><input type="radio" name="perf_reliable" value="3" aria-label="Neutral"></td><td><input type="radio" name="perf_reliable" value="4" aria-label="Agree"></td><td><input type="radio" name="perf_reliable" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="perf_reliable" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -788,27 +718,27 @@
           </section>
 
           <section class="section" id="overall">
-            <h2 class="section-title">Section 7: Overall Evaluation <span class="ar">القسم 7: التقييم العام</span></h2>
+            <h2 class="section-title">Section 8: Overall Assessment <span class="ar" lang="ar">القسم 8: التقييم العام</span></h2>
             <div class="likert-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Statement <span class="ar">العبارة</span></th>
-                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                    <th>Statement <span class="ar" lang="ar">العبارة</span></th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>N/A</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>I am satisfied with my overall experience using ChronoLearn.<span class="ar">أنا راضٍ عن تجربتي العامة في استخدام كرونوليرن.</span></td>
-                    <td><input type="radio" name="overall_satisfaction" value="1" required></td><td><input type="radio" name="overall_satisfaction" value="2" required></td><td><input type="radio" name="overall_satisfaction" value="3" required></td><td><input type="radio" name="overall_satisfaction" value="4" required></td><td><input type="radio" name="overall_satisfaction" value="5" required></td>
+                    <td>I am satisfied with my overall experience using ChronoLearn.<span class="ar" lang="ar">أنا راضٍ عن تجربتي العامة في استخدام كرونوليرن.</span></td>
+                    <td><input type="radio" name="overall_satisfaction" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="overall_satisfaction" value="2" aria-label="Disagree"></td><td><input type="radio" name="overall_satisfaction" value="3" aria-label="Neutral"></td><td><input type="radio" name="overall_satisfaction" value="4" aria-label="Agree"></td><td><input type="radio" name="overall_satisfaction" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="overall_satisfaction" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>I would recommend ChronoLearn to others.<span class="ar">أوصي باستخدام كرونوليرن للآخرين.</span></td>
-                    <td><input type="radio" name="overall_recommend" value="1" required></td><td><input type="radio" name="overall_recommend" value="2" required></td><td><input type="radio" name="overall_recommend" value="3" required></td><td><input type="radio" name="overall_recommend" value="4" required></td><td><input type="radio" name="overall_recommend" value="5" required></td>
+                    <td>I would recommend ChronoLearn to others.<span class="ar" lang="ar">أوصي باستخدام كرونوليرن للآخرين.</span></td>
+                    <td><input type="radio" name="overall_recommend" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="overall_recommend" value="2" aria-label="Disagree"></td><td><input type="radio" name="overall_recommend" value="3" aria-label="Neutral"></td><td><input type="radio" name="overall_recommend" value="4" aria-label="Agree"></td><td><input type="radio" name="overall_recommend" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="overall_recommend" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
-                    <td>ChronoLearn is a valuable tool for learning history.<span class="ar">كرونوليرن أداة قيمة لتعلم التاريخ.</span></td>
-                    <td><input type="radio" name="overall_value" value="1" required></td><td><input type="radio" name="overall_value" value="2" required></td><td><input type="radio" name="overall_value" value="3" required></td><td><input type="radio" name="overall_value" value="4" required></td><td><input type="radio" name="overall_value" value="5" required></td>
+                    <td>ChronoLearn is a valuable tool for learning history.<span class="ar" lang="ar">كرونوليرن أداة قيمة لتعلم التاريخ.</span></td>
+                    <td><input type="radio" name="overall_value" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="overall_value" value="2" aria-label="Disagree"></td><td><input type="radio" name="overall_value" value="3" aria-label="Neutral"></td><td><input type="radio" name="overall_value" value="4" aria-label="Agree"></td><td><input type="radio" name="overall_value" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="overall_value" value="na" aria-label="Not applicable"></td>
                   </tr>
                 </tbody>
               </table>
@@ -816,14 +746,14 @@
           </section>
 
           <section class="section" id="feedback">
-            <h2 class="section-title">Section 8: Open Feedback <span class="ar">القسم 8: الملاحظات المفتوحة</span></h2>
+            <h2 class="section-title">Section 9: Open Feedback <span class="ar" lang="ar">القسم 9: الملاحظات المفتوحة</span></h2>
             <div class="question-grid single">
               <div class="field full">
-                <label for="strength">What do you consider the main strength of ChronoLearn?<span class="ar">ما أبرز نقطة قوة في كرونوليرن؟</span></label>
+                <label for="strength">What do you consider the main strength of ChronoLearn?<span class="ar" lang="ar">ما أبرز نقطة قوة في كرونوليرن؟</span></label>
                 <textarea id="strength" name="strength" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
               </div>
               <div class="field full">
-                <label for="improve">What improvements would you suggest for ChronoLearn?<span class="ar">ما التحسينات التي تقترحها لكرونوليرن؟</span></label>
+                <label for="improve">What improvements would you suggest for ChronoLearn?<span class="ar" lang="ar">ما التحسينات التي تقترحها لكرونوليرن؟</span></label>
                 <textarea id="improve" name="improve" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
               </div>
             </div>
@@ -832,10 +762,10 @@
           <div class="actions">
             <p class="footnote">
               Thank you for taking the time to complete this questionnaire. Your responses are highly appreciated and contribute to the success of this research.
-              <span class="ar">شكراً لمشاركتك في هذا الاستبيان. مساهمتك مهمة وتساعد في إنجاح هذا البحث.</span>
+              <span class="ar" lang="ar">شكراً لمشاركتك في هذا الاستبيان. مساهمتك مهمة وتساعد في إنجاح هذا البحث.</span>
               <br><br>
-              This survey is conducted for academic research purposes only. All responses are collected anonymously and will be used solely for analysis within the scope of this study. No personally identifiable information is required or stored. By submitting this form, you consent to the use of your responses for research purposes in accordance with ethical guidelines.
-              <span class="ar">يُستخدم هذا الاستبيان لأغراض البحث الأكاديمي فقط. جميع الإجابات مجهولة الهوية وسيتم استخدامها للتحليل ضمن نطاق هذا البحث فقط. لا يتم جمع أي معلومات شخصية. بإرسال هذا النموذج، فإنك توافق على استخدام إجاباتك لأغراض البحث وفقاً للمعايير الأخلاقية.</span>
+              This survey is conducted for academic research purposes only. Responses will be analyzed within the scope of this study in accordance with applicable ethical guidelines.
+              <span class="ar" lang="ar">يُستخدم هذا الاستبيان لأغراض البحث الأكاديمي فقط. سيتم تحليل الإجابات ضمن نطاق هذه الدراسة وفقاً للمعايير الأخلاقية المعمول بها.</span>
             </p>
             <button type="submit">Submit / إرسال</button>
           </div>
