@@ -73,46 +73,29 @@
 
     .brand-row {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; 
   align-items: center;
   margin-bottom: 22px;
 }
-
-    .logo-group {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
    .logo-group {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 28px;
   flex-wrap: wrap;
 }
 
 .logo-box {
-  min-width: auto;
-  height: auto;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background: transparent;
-  backdrop-filter: none;
-  box-shadow: none;
-  border-radius: 0;
 }
 
 .logo-box img {
   display: block;
-  height: 64px;
-  max-width: 220px;
+  height: 100px;   
+  max-width: 300px;
   object-fit: contain;
-  background: transparent;
 }
 
     .logo-fallback {
@@ -124,12 +107,18 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3.8rem);
-      line-height: 1.03;
-      letter-spacing: -0.03em;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
       max-width: 900px;
     }
-
+    h1 span[lang="ar"] {
+  display: block;
+  font-size: 0.85em;
+  margin-top: 6px;
+  direction: rtl;
+  text-align: right;
+}
     .subtitle {
       margin: 18px 0 0;
       max-width: 900px;
@@ -310,11 +299,15 @@
       background: white;
       border: 1px solid rgba(0,24,113,0.08);
       line-height: 1.5;
+      width: 100%;
     }
 
     .choice input {
       margin-top: 2px;
       accent-color: var(--psut-blue);
+    }
+    .choice span {
+    flex: 1;
     }
 
     .likert-table {
@@ -392,7 +385,23 @@
       line-height: 1.6;
       max-width: 760px;
     }
+        .footnote .ar {
+    display: block;
+    direction: rtl;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4px;
+    line-height: 1.6;
+    }
+    .thank-you {
+    font-weight: 500;
+    }
 
+    .usage-note {
+    font-size: 0.9rem;
+    color: #666;
+    }
     button {
       border: none;
       cursor: pointer;
@@ -447,7 +456,7 @@
       .hero,
       .panel { padding: 18px; }
       .section { padding: 16px; }
-      h1 { font-size: 1.8rem; }
+      h1 { font-size: 2.4rem; }
       .logo-box { min-width: 100%; }
       .scale-legend { grid-template-columns: 1fr; }
     }
@@ -469,7 +478,7 @@
         </div>
       </div>
 
-      <h1>ChronoLearn Evaluation Questionnaire / <span lang="ar">استبيان تقييم كرونوليرن</span></h1>
+      <h1>ChronoLearn Evaluation Questionnaire <br><span lang="ar">استبيان تقييم كرونوليرن</span></h1>
       <p class="subtitle">
         This bilingual survey evaluates usability, learning effectiveness, content quality, performance, and overall experience with ChronoLearn.
         <span class="ar" lang="ar">يقيس هذا الاستبيان الثنائي اللغة سهولة الاستخدام وفعالية التعلم وجودة المحتوى والأداء والتجربة العامة مع كرونوليرن.</span>
@@ -478,17 +487,17 @@
 
     <div class="layout">
       <aside class="sidebar" aria-label="Survey navigation">
-        <h2>Sections / <span lang="ar">الأقسام</span></h2>
+        <h2>Sections | <span lang="ar">الأقسام</span></h2>
         <nav class="nav">
-          <a href="#demographics">1. Demographic Information / <span lang="ar">البيانات الديموغرافية</span></a>
-          <a href="#consent">2. Consent / <span lang="ar">الموافقة</span></a>
-          <a href="#ux">3. Usability and UX / <span lang="ar">سهولة الاستخدام وتجربة المستخدم</span></a>
-          <a href="#learning">4. Learning Effectiveness / <span lang="ar">فعالية التعلم</span></a>
-          <a href="#features">5. Feature Evaluation / <span lang="ar">تقييم الخصائص</span></a>
-          <a href="#content">6. Content Quality / <span lang="ar">جودة المحتوى</span></a>
-          <a href="#performance">7. Performance / <span lang="ar">الأداء</span></a>
-          <a href="#overall">8. Overall Assessment / <span lang="ar">التقييم العام</span></a>
-          <a href="#feedback">9. Open Feedback / <span lang="ar">الملاحظات المفتوحة</span></a>
+          <a href="#demographics">1. Demographic Information | <span lang="ar">البيانات الديموغرافية</span></a>
+          <a href="#consent">2. Consent | <span lang="ar">الموافقة</span></a>
+          <a href="#ux">3. Usability and UX | <span lang="ar">سهولة الاستخدام وتجربة المستخدم</span></a>
+          <a href="#learning">4. Learning Effectiveness | <span lang="ar">فعالية التعلم</span></a>
+          <a href="#features">5. Feature Evaluation | <span lang="ar">تقييم الخصائص</span></a>
+          <a href="#content">6. Content Quality | <span lang="ar">جودة المحتوى</span></a>
+          <a href="#performance">7. Performance | <span lang="ar">الأداء</span></a>
+          <a href="#overall">8. Overall Assessment | <span lang="ar">التقييم العام</span></a>
+          <a href="#feedback">9. Open Feedback | <span lang="ar">الملاحظات المفتوحة</span></a>
         </nav>
       </aside>
 
@@ -508,21 +517,21 @@
               <div class="field">
                 <label for="age">What is your age group? *<span class="ar" lang="ar">ما هي فئتك العمرية؟ *</span></label>
                 <select id="age" name="age" required>
-                  <option value="">Select / اختر</option>
-                  <option>Under 18 / أقل من 18</option>
+                  <option value="">Select | اختر</option>
+                  <option>Under 18 | أقل من 18</option>
                   <option>18–22</option>
                   <option>23–30</option>
-                  <option>31 and above / 31 فأكثر</option>
+                  <option>31 and above | 31 فأكثر</option>
                 </select>
               </div>
               <div class="field">
                 <label for="background">What is your educational or professional background? *<span class="ar" lang="ar">ما هو مجالك التعليمي أو المهني؟ *</span></label>
                 <select id="background" name="background" required>
-                  <option value="">Select / اختر</option>
-                  <option>School student / طالب مدرسة</option>
-                  <option>University student / طالب جامعي</option>
-                  <option>Teacher / معلم</option>
-                  <option>Other / أخرى</option>
+                  <option value="">Select | اختر</option>
+                  <option>School student | طالب مدرسة</option>
+                  <option>University student | طالب جامعي</option>
+                  <option>Teacher | معلم</option>
+                  <option>Other | أخرى</option>
                 </select>
               </div>
             </div>
@@ -576,6 +585,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>  
+                    <td>I understood the objective of ChronoLearn. <span class="ar" lang="ar">لقد فهمت هدف كرونوليرن.</span></td>
+                    <td><input type="radio" name="ux_easy" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_easy" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_easy" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_easy" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_easy" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_easy" value="na" aria-label="Not applicable"></td>
+                  </tr>
                   <tr>
                     <td>ChronoLearn is easy to use.<span class="ar" lang="ar">كرونوليرن سهل الاستخدام.</span></td>
                     <td><input type="radio" name="ux_easy" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_easy" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_easy" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_easy" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_easy" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_easy" value="na" aria-label="Not applicable"></td>
@@ -754,24 +767,26 @@
             <div class="question-grid single">
               <div class="field full">
                 <label for="strength">What do you consider the main strength of ChronoLearn?<span class="ar" lang="ar">ما أبرز نقطة قوة في كرونوليرن؟</span></label>
-                <textarea id="strength" name="strength" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
+                <textarea id="strength" name="strength" placeholder="Write your answer here... | اكتب إجابتك هنا..."></textarea>
               </div>
               <div class="field full">
                 <label for="improve">What improvements would you suggest for ChronoLearn?<span class="ar" lang="ar">ما التحسينات التي تقترحها لكرونوليرن؟</span></label>
-                <textarea id="improve" name="improve" placeholder="Write your answer here... / اكتب إجابتك هنا..."></textarea>
+                <textarea id="improve" name="improve" placeholder="Write your answer here... | اكتب إجابتك هنا..."></textarea>
               </div>
             </div>
           </section>
 
           <div class="actions">
-            <p class="footnote">
-              Thank you for taking the time to complete this questionnaire. Your responses are highly appreciated and contribute to the success of this research.
-              <span class="ar" lang="ar">شكراً لمشاركتك في هذا الاستبيان. مساهمتك مهمة وتساعد في إنجاح هذا البحث.</span>
-              <br><br>
-              This survey is conducted for academic research purposes only. Responses will be analyzed within the scope of this study in accordance with applicable ethical guidelines.
-              <span class="ar" lang="ar">يُستخدم هذا الاستبيان لأغراض البحث الأكاديمي فقط. سيتم تحليل الإجابات ضمن نطاق هذه الدراسة وفقاً للمعايير الأخلاقية المعمول بها.</span>
-            </p>
-            <button type="submit">Submit / إرسال</button>
+            <p class="footnote thank-you">
+                Thank you for taking the time to complete this questionnaire. Your responses are highly appreciated and contribute to the success of this research.
+                <span class="ar" lang="ar">شكراً لمشاركتك في هذا الاستبيان. مساهمتك مهمة وتساعد في إنجاح هذا البحث.</span>
+              </p>
+              
+              <p class="footnote usage-note">
+                This survey is conducted for academic research purposes only. Responses will be analysed within the scope of this study in accordance with applicable ethical guidelines.
+                <span class="ar" lang="ar">يُستخدم هذا الاستبيان لأغراض البحث الأكاديمي فقط. سيتم تحليل الإجابات ضمن نطاق هذه الدراسة وفقاً للمعايير الأخلاقية المعمول بها.</span>
+              </p>
+            <button type="submit">Submit | إرسال</button>
           </div>
         </form>
       </main>
