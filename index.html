@@ -10,11 +10,15 @@
       --psut-blue-2: #1632a8;
       --ink: #0f172a;
       --muted: #5b6475;
-      --bg: #f5f7ff;
-      --card: rgba(255,255,255,0.84);
+      --card: rgba(255,255,255,0.88);
       --line: rgba(0, 24, 113, 0.12);
+      --line-strong: rgba(0, 24, 113, 0.18);
       --shadow: 0 18px 60px rgba(0, 24, 113, 0.12);
       --radius: 24px;
+      --section-gap: 24px;
+      --field-gap: 18px;
+      --block-pad: 24px;
+      --compact-pad: 16px;
     }
 
     * { box-sizing: border-box; }
@@ -32,17 +36,17 @@
     }
 
     .shell {
-      width: min(1120px, calc(100% - 32px));
-      margin: 24px auto 60px;
+      width: min(1140px, calc(100% - 32px));
+      margin: 24px auto 64px;
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 28px;
+      padding: 32px;
       border: 1px solid var(--line);
       border-radius: 32px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(245,248,255,0.86));
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,248,255,0.88));
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
     }
@@ -72,57 +76,63 @@
     }
 
     .brand-row {
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-  margin-bottom: 22px;
-}
-   .logo-group {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 24px;
+    }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .logo-group {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
 
-.logo-box img {
-  display: block;
-  height: 100px;   
-  max-width: 300px;
-  object-fit: contain;
-}
+    .logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 88px;
+    }
+
+    .logo-box img {
+      display: block;
+      height: 92px;
+      max-width: 300px;
+      object-fit: contain;
+    }
 
     .logo-fallback {
       font-size: 0.92rem;
       line-height: 1.25;
       letter-spacing: 0.01em;
       font-weight: 700;
+      text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.2;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.18;
       letter-spacing: -0.02em;
       max-width: 900px;
     }
+
     h1 span[lang="ar"] {
-  display: block;
-  font-size: 0.85em;
-  margin-top: 6px;
-  direction: rtl;
-  text-align: right;
-}
+      display: block;
+      font-size: 0.82em;
+      margin-top: 8px;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.4;
+    }
+
     .subtitle {
       margin: 18px 0 0;
-      max-width: 900px;
-      font-size: 1.06rem;
+      max-width: 920px;
+      font-size: 1.02rem;
       line-height: 1.8;
       color: var(--muted);
     }
@@ -132,15 +142,15 @@
       direction: rtl;
       text-align: right;
       margin-top: 6px;
-      line-height: 1.6;
+      line-height: 1.7;
       unicode-bidi: isolate;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 22px;
-      margin-top: 22px;
+      grid-template-columns: 270px 1fr;
+      gap: 24px;
+      margin-top: 24px;
       align-items: start;
     }
 
@@ -156,27 +166,27 @@
     .sidebar {
       position: sticky;
       top: 16px;
-      padding: 18px;
+      padding: 20px;
     }
 
     .sidebar h2 {
       font-size: 1rem;
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       color: var(--psut-blue);
     }
 
     .nav {
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .nav a {
       text-decoration: none;
       color: var(--ink);
-      padding: 11px 12px;
+      padding: 12px 14px;
       border-radius: 14px;
       border: 1px solid transparent;
-      background: rgba(255,255,255,0.62);
+      background: rgba(255,255,255,0.72);
       transition: 160ms ease;
       font-size: 0.95rem;
       line-height: 1.45;
@@ -190,34 +200,40 @@
       outline: none;
     }
 
-    .panel { padding: 24px; }
-    form { display: grid; gap: 20px; }
+    .panel { padding: 28px; }
+
+    form {
+      display: grid;
+      gap: var(--section-gap);
+    }
 
     .section {
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 22px;
-      background: rgba(255,255,255,0.7);
+      padding: var(--block-pad);
+      background: rgba(255,255,255,0.76);
     }
 
     .section-title {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: clamp(1.15rem, 2vw, 1.5rem);
       color: var(--psut-blue);
       line-height: 1.35;
     }
 
     .section-note {
-      margin: 0 0 18px;
+      margin: 0 0 20px;
       color: var(--muted);
       font-size: 0.96rem;
-      line-height: 1.7;
+      line-height: 1.75;
+      max-width: 92ch;
     }
 
     .question-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: var(--field-gap);
+      align-items: start;
     }
 
     .question-grid.single { grid-template-columns: 1fr; }
@@ -225,10 +241,11 @@
     .field {
       display: grid;
       gap: 10px;
-      padding: 16px;
+      padding: 18px;
       border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,250,255,0.72));
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,250,255,0.76));
       border: 1px solid rgba(0,24,113,0.08);
+      min-height: 100%;
     }
 
     .field.full { grid-column: 1 / -1; }
@@ -243,7 +260,7 @@
 
     legend {
       padding: 0;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border: 0;
     }
 
@@ -278,7 +295,7 @@
     }
 
     textarea {
-      min-height: 130px;
+      min-height: 140px;
       resize: vertical;
     }
 
@@ -288,13 +305,15 @@
       gap: 10px;
     }
 
-    .radio-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .radio-grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .choice {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: flex-start;
-      padding: 12px 14px;
+      padding: 14px 14px;
       border-radius: 14px;
       background: white;
       border: 1px solid rgba(0,24,113,0.08);
@@ -305,23 +324,23 @@
     .choice input {
       margin-top: 2px;
       accent-color: var(--psut-blue);
+      flex: 0 0 auto;
     }
-    .choice span {
-    flex: 1;
-    }
+
+    .choice span { flex: 1; }
 
     .likert-table {
       width: 100%;
       overflow-x: auto;
       border: 1px solid rgba(0,24,113,0.08);
-      border-radius: 16px;
+      border-radius: 18px;
       background: white;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 760px;
+      min-width: 820px;
     }
 
     th, td {
@@ -329,27 +348,42 @@
       border-bottom: 1px solid rgba(0,24,113,0.08);
       text-align: center;
       font-size: 0.95rem;
-      vertical-align: top;
+      vertical-align: middle;
     }
 
-    th:first-child, td:first-child {
+    th {
+      background: rgba(245,247,255,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      font-weight: 700;
+    }
+
+    th:first-child,
+    td:first-child {
       text-align: left;
-      width: 40%;
+      width: 42%;
       font-weight: 600;
+      vertical-align: top;
+      padding-right: 18px;
     }
 
     tbody tr:last-child td { border-bottom: none; }
 
+    tbody tr:hover td {
+      background: rgba(0,24,113,0.02);
+    }
+
     td input[type="radio"] {
-      transform: scale(1.15);
+      transform: scale(1.12);
       accent-color: var(--psut-blue);
     }
 
     .scale-legend {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-      margin-top: 8px;
+      grid-template-columns: repeat(6, minmax(110px, 1fr));
+      gap: 10px;
+      margin: 10px 0 16px;
     }
 
     .scale-legend span {
@@ -358,54 +392,57 @@
       color: var(--muted);
       background: rgba(0,24,113,0.04);
       border: 1px solid rgba(0,24,113,0.08);
-      padding: 8px;
+      padding: 10px 8px;
       border-radius: 12px;
       line-height: 1.45;
     }
 
     .consent-box {
-      padding: 16px;
+      padding: 18px;
       border-radius: 18px;
       background: rgba(0,24,113,0.05);
       border: 1px solid rgba(0,24,113,0.12);
     }
 
     .actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      padding-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 18px;
+      padding-top: 4px;
+    }
+
+    .actions-copy {
+      display: grid;
+      gap: 12px;
     }
 
     .footnote {
       color: var(--muted);
       font-size: 0.92rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 0;
       max-width: 760px;
     }
-        .footnote .ar {
-    display: block;
-    direction: rtl;
-    text-align: right;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 4px;
-    line-height: 1.6;
-    }
-    .thank-you {
-    font-weight: 500;
+
+    .footnote .ar {
+      display: block;
+      direction: rtl;
+      text-align: right;
+      font-size: 0.92rem;
+      color: #555;
+      margin-top: 4px;
+      line-height: 1.7;
     }
 
-    .usage-note {
-    font-size: 0.9rem;
-    color: #666;
-    }
+    .thank-you { font-weight: 500; }
+    .usage-note { font-size: 0.9rem; color: #666; }
+
     button {
       border: none;
       cursor: pointer;
-      padding: 15px 22px;
+      padding: 15px 24px;
+      min-width: 170px;
       border-radius: 16px;
       font: inherit;
       font-weight: 800;
@@ -439,7 +476,9 @@
       .layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
       .question-grid,
-      .radio-grid.two { grid-template-columns: 1fr; }
+      .radio-grid.two,
+      .actions { grid-template-columns: 1fr; }
+      .panel { padding: 22px; }
     }
 
     @media (max-width: 640px) {
@@ -456,9 +495,12 @@
       .hero,
       .panel { padding: 18px; }
       .section { padding: 16px; }
-      h1 { font-size: 2.4rem; }
+      h1 { font-size: 1.9rem; }
       .logo-box { min-width: 100%; }
+      .logo-box img { height: 76px; }
       .scale-legend { grid-template-columns: 1fr; }
+      .field { padding: 16px; }
+      th, td { padding: 12px 8px; }
     }
   </style>
 </head>
@@ -534,6 +576,18 @@
                   <option>Other | أخرى</option>
                 </select>
               </div>
+              <div class="field full">
+                <label for="qualification">Highest Academic Qualification *<span class="ar" lang="ar">أعلى مؤهل أكاديمي *</span></label>
+                <select id="qualification" name="qualification" required>
+                  <option value="">Select | اختر</option>
+                  <option>High School | ثانوية عامة</option>
+                  <option>Diploma | دبلوم</option>
+                  <option>Bachelor’s Degree | بكالوريوس</option>
+                  <option>Master’s Degree | ماجستير</option>
+                  <option>PhD | دكتوراه</option>
+                  <option>Other | أخرى</option>
+                </select>
+              </div>
             </div>
             <div class="field full" style="margin-top:18px;">
               <fieldset>
@@ -585,9 +639,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>  
-                    <td>I understood the objective of ChronoLearn. <span class="ar" lang="ar">لقد فهمت هدف كرونوليرن.</span></td>
-                    <td><input type="radio" name="ux_easy" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_easy" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_easy" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_easy" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_easy" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_easy" value="na" aria-label="Not applicable"></td>
+                  <tr>
+                    <td>I understood the objective of ChronoLearn.<span class="ar" lang="ar">لقد فهمت هدف كرونوليرن.</span></td>
+                    <td><input type="radio" name="ux_objective" value="1" aria-label="Strongly disagree" required></td><td><input type="radio" name="ux_objective" value="2" aria-label="Disagree"></td><td><input type="radio" name="ux_objective" value="3" aria-label="Neutral"></td><td><input type="radio" name="ux_objective" value="4" aria-label="Agree"></td><td><input type="radio" name="ux_objective" value="5" aria-label="Strongly agree"></td><td><input type="radio" name="ux_objective" value="na" aria-label="Not applicable"></td>
                   </tr>
                   <tr>
                     <td>ChronoLearn is easy to use.<span class="ar" lang="ar">كرونوليرن سهل الاستخدام.</span></td>
@@ -777,15 +831,16 @@
           </section>
 
           <div class="actions">
-            <p class="footnote thank-you">
+            <div class="actions-copy">
+              <p class="footnote thank-you">
                 Thank you for taking the time to complete this questionnaire. Your responses are highly appreciated and contribute to the success of this research.
                 <span class="ar" lang="ar">شكراً لمشاركتك في هذا الاستبيان. مساهمتك مهمة وتساعد في إنجاح هذا البحث.</span>
               </p>
-              
               <p class="footnote usage-note">
                 This survey is conducted for academic research purposes only. Responses will be analysed within the scope of this study in accordance with applicable ethical guidelines.
                 <span class="ar" lang="ar">يُستخدم هذا الاستبيان لأغراض البحث الأكاديمي فقط. سيتم تحليل الإجابات ضمن نطاق هذه الدراسة وفقاً للمعايير الأخلاقية المعمول بها.</span>
               </p>
+            </div>
             <button type="submit">Submit | إرسال</button>
           </div>
         </form>
