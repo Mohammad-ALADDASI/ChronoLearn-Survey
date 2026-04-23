@@ -37,6 +37,8 @@ This directly supports the research objectives and evaluation phase of the Chron
 ## Deployment (GitHub Pages)
 
 To view the survey:
+https://survey.chronolearn.org/
+or 
 https://mohammad-aladdasi.github.io/ChronoLearn-Survey/ 
 
 ---
